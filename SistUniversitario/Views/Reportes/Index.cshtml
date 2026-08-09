@@ -1,0 +1,37 @@
+@model SistUniversitario.Models.ReportesViewModel
+@{
+    ViewBag.Title = "Reportes académicos";
+}
+<section class="page-heading">
+    <p class="eyebrow">CONSULTAS</p>
+    <h1>Reportes académicos</h1>
+    <p>Filtre por curso, estudiante, sede o cuatrimestre. Los filtros se pueden combinar.</p>
+</section>
+@using (Html.BeginForm("Consultar", "Reportes", FormMethod.Get, new { @class = "filter-card" }))
+{
+    <div class="row g-3">
+        <div class="col-md-3">@Html.LabelFor(m => m.IdCurso) @Html.DropDownListFor(m => m.IdCurso, (SelectList)ViewBag.Cursos, "Todos", new { @class = "form-control" })</div>
+        <div class="col-md-3">@Html.LabelFor(m => m.IdEstudiante) @Html.DropDownListFor(m => m.IdEstudiante, (SelectList)ViewBag.Estudiantes, "Todos", new { @class = "form-control" })</div>
+        <div class="col-md-3">@Html.LabelFor(m => m.IdSede) @Html.DropDownListFor(m => m.IdSede, (SelectList)ViewBag.Sedes, "Todas", new { @class = "form-control" })</div>
+        <div class="col-md-3">@Html.LabelFor(m => m.IdCuatrimestre) @Html.DropDownListFor(m => m.IdCuatrimestre, (SelectList)ViewBag.Cuatrimestres, "Todos", new { @class = "form-control" })</div>
+    </div>
+    <div class="filter-actions"><button class="btn btn-primary" type="submit">Generar reporte</button> <a class="btn btn-light" href="@Url.Action("Index")">Limpiar</a></div>
+}
+@if (Model.Resultados.Any())
+{
+    <div class="table-responsive result-card">
+        <table class="table table-hover">
+            <thead><tr><th>Carné</th><th>Estudiante</th><th>Curso</th><th>Sede</th><th>Cuatrimestre</th><th>Nota</th><th>Estado</th></tr></thead>
+            <tbody>
+            @foreach (var fila in Model.Resultados)
+            {
+                <tr><td>@fila.Carne</td><td>@fila.Estudiante</td><td>@fila.Curso</td><td>@fila.Sede</td><td>@fila.Cuatrimestre</td><td>@(fila.NotaFinal.HasValue ? fila.NotaFinal.Value.ToString("0.0") : "Pendiente")</td><td>@fila.Estado</td></tr>
+            }
+            </tbody>
+        </table>
+    </div>
+}
+else if (Request.QueryString.Count > 0)
+{
+    <div class="alert alert-info">No se encontraron registros para los filtros seleccionados.</div>
+}

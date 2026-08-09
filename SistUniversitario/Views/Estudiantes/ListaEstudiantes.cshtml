@@ -1,0 +1,46 @@
+﻿
+
+@model List<SistUniversitario.Models.saEstudiantesSelect_Result>
+
+
+@{
+    ViewBag.Title = "ListaEstudiantes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista Estudiantes</h2>
+
+<a href="~/Estudiantes/EstudianteNuevo">Agregar Estudiante</a>
+
+<table class="table">
+    <tr>
+        <th>Nombre</th>
+        <th>Cédula</th>
+        <th>Provincia</th>
+        <th>Canton</th>
+        <th>Distrito</th>
+        <th>Carne</th>
+        <th>Acciones</th>
+    </tr>
+    @{
+        foreach (SistUniversitario.Models.saEstudiantesSelect_Result estudiantes in this.Model)
+        {
+        <tr>
+            <td>@estudiantes.Nombre</td>
+            <td>@estudiantes.cedula</td>
+            <td>@estudiantes.Provincia</td>
+            <td>@estudiantes.Distrito</td>
+            <td>@estudiantes.Canton</td>
+            <td>@estudiantes.Carne</td>
+            <td>
+                <a href="~/Estudiantes/EstudianteModifica?id_estudiante=@estudiantes.id_estudiante">Modificar</a>
+                <br />
+                <a href="~/Estudiantes/EstudianteElimina?id_estudiante=@estudiantes.id_estudiante">Eliminar</a>
+            </td>
+           
+        </tr>
+
+        }
+
+    }
+</table>

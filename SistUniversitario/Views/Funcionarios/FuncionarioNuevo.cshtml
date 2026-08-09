@@ -1,0 +1,60 @@
+﻿
+
+@{
+    ViewBag.Title = "FuncionarioNuevo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Funcionario Nuevo</h2>
+
+<form id="frmfuncionario" method="post">
+    <div class="form-group">
+        <label>Funcionario:</label>
+        <input type="text" name="Funcionario" id="Funcionario" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Cédula:</label>
+        <input type="text" name="cedula" id="cedula" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Provincia:</label>
+        <select name="id_provincia" id="id_provincia" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label>Cantón:</label>
+        <select name="id_canton" id="id_canton" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label>Distrito:</label>
+        <select name="id_distrito" id="id_distrito" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label>Fecha de contratacion :</label>
+        <input type="text" name="fecha_contratacion" id="fecha_contratacion" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Guardar" id="btnAceptar" />
+    </div>
+
+    <a href="~/Funcionarios/ListaFuncionarios">Regresar a la lista</a>
+
+</form>
+
+
+
+
+
+@section scripts{
+    @* *****No es necesario incluir jquery porque
+        ya el layout lo incluye*@
+
+<script src="~/Scripts/Funcionarios/Funcionario.js"></script>
+    <script src="~/Scripts/ScriptGenericos.js"></script>
+}
+

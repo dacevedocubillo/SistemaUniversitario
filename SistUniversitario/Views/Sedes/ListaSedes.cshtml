@@ -1,0 +1,51 @@
+﻿@model List<SistUniversitario.Models.saSedesSelect_Result>
+
+
+@{
+    ViewBag.Title = "ListaSedes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista Sedes</h2>
+
+<a href="~/Sedes/SedeNueva">Agregar Curso</a>
+
+
+<table class="table">
+    <tr>
+        <th>Sede</th>
+        <th>Direccion Física</th>
+        <th>Provincia</th>
+        <th>Distrito</th>
+        <th>Cantón</th>
+        <th>Funcionario</th>
+        <th>Acciones</th>
+    </tr>
+    @{
+        foreach (SistUniversitario.Models.saSedesSelect_Result sedes in this.Model)
+        {
+            <tr>
+                <td>@sedes.nombre</td>
+                <td>@sedes.DireccionFisica</td>
+                <td>@sedes.Provincia</td>
+                <td>@sedes.Distrito</td>
+                <td>@sedes.Canton</td>
+                <td>@sedes.Funcionario</td>
+
+
+                <td>
+
+                    <a href="~/Sedes/SedeModifica?idSedeuniversitaria=@sedes.idSedeuniversitaria">Modificar</a>
+                    <br />
+                    <a href="~/Sedes/SedeElimina?idSedeuniversitaria=@sedes.idSedeuniversitaria">Eliminar</a>
+
+                </td>
+            </tr>
+
+
+
+        }
+
+    }
+</table>
+

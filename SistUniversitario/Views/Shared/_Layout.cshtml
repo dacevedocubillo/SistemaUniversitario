@@ -1,0 +1,84 @@
+@using SistUniversitario.Models
+@{
+    RetornaUsuarioCorreoPwd_Result usuario = Session["datosusuario"] as RetornaUsuarioCorreoPwd_Result;
+    bool esAdministrador = usuario != null && string.Equals(usuario.Tipo_Usuario, "Administrador", StringComparison.OrdinalIgnoreCase);
+    string inicial = usuario == null || string.IsNullOrWhiteSpace(usuario.nombreCompleto) ? "U" : usuario.nombreCompleto.Substring(0, 1).ToUpper();
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewBag.Title - Sistema Universitario</title>
+    <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Site.css")" />
+    <script src="@Url.Content("~/Scripts/modernizr-2.8.3.js")"></script>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar navbar-expand-lg" aria-label="Navegación principal">
+            <div class="container">
+                <a class="navbar-brand" href="@Url.Action("Bievenida", "Inicio")">
+                    <span class="brand-mark" aria-hidden="true">SU</span>
+                    <span>Sistema Universitario</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Mostrar menú"><span class="menu-icon" aria-hidden="true">☰</span></button>
+                <div class="collapse navbar-collapse" id="menuPrincipal">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">@Html.ActionLink("Inicio", "Bievenida", "Inicio", null, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("Oferta", "Oferta", "Oferta", null, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("Matrícula", "ListaMatricula", "Matricula", null, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("Notas", "ListaNotas", "RegistrosNotas", null, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("Reportes", "Index", "Reportes", null, new { @class = "nav-link" })</li>
+                        @if (esAdministrador)
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="menuMantenimientos" role="button" data-bs-toggle="dropdown" aria-expanded="false">Mantenimientos</a>
+                                <ul class="dropdown-menu" aria-labelledby="menuMantenimientos">
+                                    <li>@Html.ActionLink("Cursos", "ListaCurso", "Cursos", null, new { @class = "dropdown-item" })</li>
+                                    <li>@Html.ActionLink("Sedes", "ListaSedes", "Sedes", null, new { @class = "dropdown-item" })</li>
+                                    <li>@Html.ActionLink("Carreras", "ListaCarrera", "Carreras", null, new { @class = "dropdown-item" })</li>
+                                    <li>@Html.ActionLink("Cursos por carrera", "ListaCursosCarrera", "CursosCarrera", null, new { @class = "dropdown-item" })</li>
+                                    <li>@Html.ActionLink("Direcciones", "ListaDireccionCarrera", "DireccionesCarrera", null, new { @class = "dropdown-item" })</li>
+                                    <li>@Html.ActionLink("Funcionarios", "ListaFuncionarios", "Funcionarios", null, new { @class = "dropdown-item" })</li>
+                                    <li>@Html.ActionLink("Estudiantes", "ListaEstudiantes", "Estudiantes", null, new { @class = "dropdown-item" })</li>
+                                </ul>
+                            </li>
+                        }
+                    </ul>
+                    <div class="session-menu">
+                        <span class="user-avatar" aria-hidden="true">@inicial</span>
+                        <span class="user-name">@(usuario == null ? "" : usuario.nombreCompleto)</span>
+                        <a id="lnkCerrarSesion" class="btn btn-outline-light btn-sm" href="@Url.Action("CierraSesion", "LogIn")">Cerrar sesión</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container body-content" id="contenido">
+        @if (TempData["Mensaje"] != null)
+        {
+            <div class="alert alert-info" role="status">@TempData["Mensaje"]</div>
+        }
+        @RenderBody()
+    </main>
+
+    <footer class="site-footer">
+        <div class="container"><span>&copy; 2020 Sistema Universitario</span><span>Proyecto académico - Costa Rica</span></div>
+    </footer>
+
+    <script src="@Url.Content("~/Scripts/jquery-3.7.1.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.bundle.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/BusquedaGeneral.js")"></script>
+    @RenderSection("scripts", required: false)
+    <script>
+        (function () {
+            var link = document.getElementById('lnkCerrarSesion');
+            if (link) link.addEventListener('click', function (event) {
+                if (!window.confirm('¿Desea cerrar la sesión?')) event.preventDefault();
+            });
+        }());
+    </script>
+</body>
+</html>

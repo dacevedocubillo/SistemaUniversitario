@@ -1,0 +1,125 @@
+﻿@model SistUniversitario.Models.saRetornaMatricula_ID_Result
+
+@{
+    ViewBag.Title = "MatriculaModifica";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Matricula Modifica</h2>
+
+
+<form id="frmMatriculaNueva" method="post">
+
+    <div class="form-group">
+        <label>Estudiante :</label>
+        <select name="id_estudiante" id="id_estudiante" class="form-control">
+            <option value="">Seleccione un estudiante</option>
+            @{
+
+                foreach (SistUniversitario.Models.RetornaEstudiante_Result estudiante in this.ViewBag.ListaEstudiante)
+                {
+                    bool esIdestModelo = estudiante.id_estudiante == Model.id_estudiante;
+                    @*
+                        Incluir propiedad
+
+                    *@
+
+                    if (esIdestModelo)
+                    {
+                        <option value="@estudiante.id_estudiante" selected>@estudiante.nombre</option>
+                    }
+                    else
+                    {
+                        <option value="@estudiante.id_estudiante">@estudiante.nombre</option>
+                    }
+
+                }
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Cursos :</label>
+        <select name="id_curso" id="id_curso" class="form-control">
+            <option value="">Seleccione un Curso</option>
+            @{
+
+                foreach (SistUniversitario.Models.RetornaCurso_Result curso in this.ViewBag.ListaCursos)
+                {
+                    bool esIdcurso = curso.idCurso == Model.id_curso;
+
+                    if (esIdcurso)
+                    {
+                        <option value="@curso.idCurso" selected>@curso.nombreCurso</option>
+                    }
+                    else
+                    {
+                        <option value="@curso.idCurso">@curso.nombreCurso</option>
+                    }
+
+
+                }
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Sedes :</label>
+        <select name="id_sede" id="id_sede" class="form-control">
+            <option value="">Seleccione una Sede</option>
+            @{
+
+                foreach (SistUniversitario.Models.RetornaSedes_Result sedes in this.ViewBag.ListaSedes)
+                {
+                    bool esIdSedes = sedes.idSedeuniversitaria == Model.id_sede;
+
+                    if (esIdSedes)
+                    {
+                        <option value="@sedes.idSedeuniversitaria" selected>@sedes.nombre.ToUpper()</option>
+                    }
+                    else
+                    {
+                        <option value="@sedes.idSedeuniversitaria">@sedes.nombre.ToUpper()</option>
+                    }
+
+                }
+            }
+        </select>
+    </div>
+
+
+
+    <div class="form-group">
+        <label>Cuatrimestre :</label>
+        <select name="id_cuatrimestre" id="id_cuatrimestre" class="form-control">
+            <option value="">Seleccione una Sede</option>
+            @{
+
+                foreach (SistUniversitario.Models.RetornaCuatrimestre_Result cuatrimestre in this.ViewBag.ListaCuatrimestre)
+                {
+                    bool esIdCuatri = cuatrimestre.id_cuatrimestre == Model.id_cuatrimestre;
+
+
+                    if (true)
+                    {
+                        <option value="@cuatrimestre.id_cuatrimestre" selected>@cuatrimestre.nombre.ToUpper()</option>
+
+                    }
+                    else
+                    {
+                        <option value="@cuatrimestre.id_cuatrimestre">@cuatrimestre.nombre.ToUpper()</option>
+                    }
+
+
+                }
+            }
+        </select>
+    </div>
+
+
+    <div class="form-group">
+        <input type="submit" value="Matricular" id="btnAceptar" />
+    </div>
+
+    <a href="~/Matricula/ListaMatricula">Regresar a la lista</a>
+</form>

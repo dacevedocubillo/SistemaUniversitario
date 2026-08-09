@@ -1,0 +1,116 @@
+﻿
+@model SistUniversitario.Models.saRegistro_ID_Result
+
+@{
+    ViewBag.Title = "RegistroNotaModifica";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Nota Elimina</h2>
+
+<form id="frmRegistroNota" method="post">
+
+    <div class="form-group">
+        <label>Estudiante :</label>
+        <select name="idestudiante" id="idestudiante" class="form-control" readonly>
+            <option value="">Seleccione un estudiante</option>
+            @{
+
+                foreach (SistUniversitario.Models.RetornaEstudiante_Result estudiante in this.ViewBag.ListaEstudiante)
+                {
+                    bool esIdEstudiante = estudiante.id_estudiante == Model.idestudiante;
+
+                    if (esIdEstudiante)
+                    {
+                        <option value="@estudiante.id_estudiante" selected>@estudiante.nombre</option>
+                    }
+                    else
+                    {
+                        <option value="@estudiante.id_estudiante">@estudiante.nombre</option>
+                    }
+
+                }
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Cursos :</label>
+        <select name="id_curso" id="id_curso" class="form-control" readonly>
+            <option value="">Seleccione un Curso</option>
+            @{
+
+                foreach (SistUniversitario.Models.RetornaCurso_Result curso in this.ViewBag.ListaCursos)
+                {
+                    bool esIdcurso = curso.idCurso == Model.id_curso;
+
+                    if (esIdcurso)
+                    {
+                        <option value="@curso.idCurso" selected>@curso.nombreCurso</option>
+                    }
+
+                    else
+                    {
+                        <option value="@curso.idCurso">@curso.nombreCurso</option>
+                    }
+
+                }
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Sedes :</label>
+        <select name="id_sede" id="id_sede" class="form-control" readonly>
+            <option value="">Seleccione una Sede</option>
+            @{
+
+                foreach (SistUniversitario.Models.RetornaSedes_Result sedes in this.ViewBag.ListaSedes)
+                {
+                    bool esIdsedes = sedes.idSedeuniversitaria == Model.id_sede;
+                    if (esIdsedes)
+                    {
+                        <option value="@sedes.idSedeuniversitaria" selected>@sedes.nombre</option>
+                    }
+
+                    else
+                    {
+                        <option value="@sedes.idSedeuniversitaria">@sedes.nombre</option>
+                    }
+                }
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Nota:</label>
+        <input type="text" name="notafinal" id="notafinal" class="form-control" value="@Model.notafinal" readonly />
+    </div>
+
+    <div class="form-group">
+        <label>Estado :</label>
+        <select name="id_estado" id="id_estado" class="form-control" readonly>
+            <option value="">Estado</option>
+            @{
+                foreach (SistUniversitario.Models.RetornaEstado_Result estado in this.ViewBag.ListaEstado)
+                {
+
+                    bool esIdestado = estado.id_estado == Model.id_estado;
+                    if (esIdestado)
+                    {
+                        <option value="@estado.id_estado" selected>@estado.estado</option>
+                    }
+
+                    else
+                    {
+                        <option value="@estado.id_estado">@estado.estado</option>
+                    }
+                }
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Guardar" id="btnAceptar" />
+    </div>
+</form>

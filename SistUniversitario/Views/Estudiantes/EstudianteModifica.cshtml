@@ -1,0 +1,56 @@
+﻿@model SistUniversitario.Models.saRetornaEstudiante_ID_Result
+@{
+    ViewBag.Title = "EstudianteModifica";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Estudiante Modifica</h2>
+
+<form id="frmestudiante" method="post">
+
+    <div class="form-group">
+        <label>Nombre:</label>
+        <input type="text" name="Nombre" id="Nombre" class="form-control" value="@Model.nombre" />
+    </div>
+
+    <div class="form-group">
+        <label>Cedula:</label>
+        <input type="text" name="cedula" id="cedula" class="form-control" value="@Model.cedula" />
+    </div>
+
+
+    <div class="form-group">
+        <label>Provincia:</label>
+        <select name="id_provincia" id="id_provincia" class="form-control"  value="@Model.id_provincia" ></select>
+    </div>
+
+    <div class="form-group">
+        <label>Cantón:</label>
+        <select name="id_canton" id="id_canton" class="form-control" value="@Model.id_canton"></select>
+    </div>
+
+    <div class="form-group">
+        <label>Distrito:</label>
+        <select name="id_distrito" id="id_distrito" class="form-control" value="@Model.id_distrito" ></select>
+    </div>
+
+    <div class="form-group">
+        <label>Carne :</label>
+        <input type="text" name="Carne" id="Carne" class="form-control" value="@Model.carne" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Guardar" id="btnAceptar" />
+    </div>
+
+    <a href="~/Estudiantes/ListaEstudiantes">Regresar a la lista</a>
+
+</form>
+
+@section scripts{
+    @* *****No es necesario incluir jquery porque
+        ya el layout lo incluye*@
+    <script src="~/Scripts/ScriptGenericos.js"></script>
+}
+
+

@@ -1,0 +1,40 @@
+﻿@model List<SistUniversitario.Models.saRegistroNotasSelect_Result>
+
+
+@{
+    ViewBag.Title = "ListaNotas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista Notas</h2>
+
+<a href="~/RegistrosNotas/RegistroNuevoNota">Ingrese nota</a>
+
+<table class="table">
+    <tr>
+        <th>Estudiante</th>
+        <th>Curso</th>
+        <th>Nota</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+    </tr>
+    @{
+        foreach (SistUniversitario.Models.saRegistroNotasSelect_Result registro in this.Model)
+        {
+        <tr>
+            <td>@registro.Estudiante</td>
+            <td>@registro.Curso</td>
+            <th>@registro.notafinal</th>
+            <td>@registro.Estado</td>
+            <td>
+                <a href="~/RegistrosNotas/RegistroNotaModifica?idRegistro_Notas=@registro.idRegistro_Notas">Modificar</a>
+                <br />
+                <a href="~/RegistrosNotas/RegistroNotaElimina?idRegistro_Notas=@registro.idRegistro_Notas">Eliminar</a>
+            </td>
+
+        </tr>
+
+        }
+
+    }
+</table>

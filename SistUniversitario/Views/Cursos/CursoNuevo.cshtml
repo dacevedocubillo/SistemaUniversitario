@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "CursoNuevo";
+}
+
+<h2>Curso Nuevo</h2>
+
+<form id="frmCursoNuevo" method="post">
+   
+    <div class="form-group">
+        <label>Codigo:</label>
+        <input type="text" name="codigo" id="codigo" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Curso :</label>
+        <input type="text" name="Curso" id="Curso" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Guardar" id="btnAceptar" />
+    </div>
+
+    <a href="~/Cursos/ListaCurso">Regresar a la lista</a>
+
+</form>
+
+
+@section scripts{
+
+    <script src="~/Scripts/Cursos/CursoNuevo.js"></script>
+}

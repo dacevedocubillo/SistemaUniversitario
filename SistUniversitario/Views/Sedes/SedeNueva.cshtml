@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "SedeNueva";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sede Nueva</h2>
+<form id="frmSede" method="post">
+
+    <div class="form-group">
+        <label>Nombre:</label>
+        <input type="text" name="nombre" id="nombre" class="form-control"/>
+    </div>
+
+    <div class="form-group">
+        <label>Codigo:</label>
+        <input type="text" name="codigo" id="codigo" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Funcionario :</label>
+        <select name="id_funcionario" id="id_funcionario" class="form-control">
+            <option value="">Seleccione un Funcionario</option>
+            @{
+
+                foreach (SistUniversitario.Models.RetornaFuncionario_Result funcionario in this.ViewBag.ListaFuncionario)
+                {
+                    <option value="@funcionario.id_funcionario">@funcionario.nombre</option>
+                }
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Provincia:</label>
+        <select name="id_provincia" id="id_provincia" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label>Cantón:</label>
+        <select name="id_canton" id="id_canton" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label>Distrito:</label>
+        <select name="id_distrito" id="id_distrito" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label>Direccion Fisica :</label>
+        <input type="text" name="DireccionFisica" id="DireccionFisica" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Guardar" id="btnAceptar" />
+    </div>
+
+    <a href="~/Cursos/ListaCurso">Regresar a la lista</a>
+
+</form>
+@section scripts{
+    @* *****No es necesario incluir jquery porque
+        ya el layout lo incluye*@
+<script src="~/Scripts/ScriptGenericos.js"></script>
+
+<script src="~/Scripts/Sedes/SedesValidaciones.js"></script>
+    
+}
+

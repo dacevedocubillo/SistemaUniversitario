@@ -1,0 +1,32 @@
+﻿@model List<SistUniversitario.Models.saFinalizacionSelect_Result>
+
+@{
+    ViewBag.Title = "ListaFinalizacion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Finalizacion Cursos</h2>
+
+<table class="table">
+    <tr>
+        <th>Curso</th>
+        <th>Nota</th>
+        <th>Acciones</th>
+    </tr>
+    @{
+        foreach (SistUniversitario.Models.saFinalizacionSelect_Result finalizacion in this.Model)
+        {
+            <tr>
+                <td>@finalizacion.nombreCurso</td>
+                <td>@finalizacion.notafinal</td>
+                <td>
+                    <a href="~/FinalizacionCurso/FinalizacionModifica?idRegistro_Notas=@finalizacion.id_finalizacion">Finalizar Curso</a>
+                    <br />
+                </td>
+
+            </tr>
+
+        }
+
+    }
+</table>

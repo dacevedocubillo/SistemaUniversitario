@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "CarreraElimina";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Carrera Elimina</h2>
+
+<form id="frmCursoNuevo" method="post">
+
+    <div class="form-group">
+        <label>Direccion Carrera :</label>
+        <select name="idDireccionCarrera" id="idDireccionCarrera" class="form-control" readonly>
+            <option value="">Seleccione una Carrera</option>
+            @{
+
+                foreach (SistUniversitario.Models.RetornaDireccion_Result direccion in this.ViewBag.ListaDireccion)
+                {
+                    bool esIddireccionModelo = direccion.idDcarrera == Model.idDireccionCarrera;
+                    @*
+                        Incluir propiedad
+
+                    *@
+                    if (esIddireccionModelo)
+                    {
+                        <option value="@direccion.idDcarrera" selected>@direccion.Nombre.ToUpper()</option>
+
+                    }
+                    else
+                    {
+                        <option value="@direccion.idDcarrera">@direccion.Nombre.ToUpper()</option>
+
+                    }
+
+                }
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Nombre:</label>
+        <input type="text" name="Nombre" id="Nombre" class="form-control" value="@Model.Nombre" readonly />
+    </div>
+
+    <div class="form-group">
+        <label>Codigo :</label>
+        <input type="text" name="Codigo" id="Codigo" class="form-control" value="@Model.Codigo" readonly />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Guardar" id="btnAceptar" />
+    </div>
+
+    <a href="~/Carreras/ListaCarrera">Regresar a la lista</a>
+
+</form>

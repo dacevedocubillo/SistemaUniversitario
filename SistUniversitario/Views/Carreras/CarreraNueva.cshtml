@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "CarreraNueva";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Carrera Nueva</h2>
+
+<form id="frmCarreraNueva" method="post">
+
+
+    <div class="form-group">
+        <label>Direccion :</label>
+        <select name="idDireccionCarrera" id="idDireccionCarrera" class="form-control">
+            <option value="">Seleccione una Carrera</option>
+            @{
+
+                foreach (SistUniversitario.Models.RetornaDireccion_Result direccion in this.ViewBag.ListaDireccion)
+                {
+                    <option value="@direccion.id_funcionario">@direccion.Nombre</option>
+                }
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Nombre:</label>
+        <input type="text" name="Nombre" id="Nombre" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Codigo :</label>
+        <input type="text" name="Codigo" id="Codigo" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Guardar" id="btnAceptar" />
+    </div>
+
+    <a href="~/Carreras/ListaCarrera">Regresar a la lista</a>
+
+</form>
+@section scripts{
+
+    <script src="~/Scripts/Carreras/Carreras.js"></script>
+   
+}

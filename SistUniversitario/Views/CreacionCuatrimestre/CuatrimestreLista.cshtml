@@ -1,0 +1,32 @@
+﻿@model List<SistUniversitario.Models.saCreacionSelect_Result>
+
+@{
+    ViewBag.Title = "CuatrimestreLista";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cuatrimestre Lista</h2>
+
+
+<a href="~/CreacionCuatrimestre/CreacionCuatrimestre">Crear un cuatrimestre</a>
+
+
+<table class="table">
+    <tr>
+        <th>Curso</th>
+        <th>Sede</th>
+        <th>Cuatrimestre</th>
+    </tr>
+    @{
+        foreach (SistUniversitario.Models.saCreacionSelect_Result cuatrimestre in this.Model)
+        {
+            <tr>
+                <td>@cuatrimestre.Curso</td>
+                <td>@cuatrimestre.Sede</td>
+                <td>@cuatrimestre.Cuatrimestre</td>
+            </tr>
+
+        }
+
+    }
+</table>

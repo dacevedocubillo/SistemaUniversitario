@@ -1,0 +1,55 @@
+﻿
+@model  SistUniversitario.Models.RetornaUsuarioCorreoPwd_Result
+
+@{
+    ViewBag.Title = "Bienvenida";
+}
+
+<section class="welcome-hero">
+    <div>
+        <p class="eyebrow">PORTAL ACADÉMICO</p>
+        <h1>Bienvenido(a), @Model.nombreCompleto</h1>
+        <p>Administre los procesos universitarios desde un espacio claro y centralizado.</p>
+        <p class="last-access">Último ingreso: @Model.Fecha_Ingreso.ToString("dd/MM/yyyy HH:mm")</p>
+    </div>
+</section>
+
+<div id="caruselUniversitario" class="carousel slide feature-carousel" data-bs-ride="carousel" aria-label="Funciones destacadas">
+    <div class="carousel-inner">
+        <div class="carousel-item active"><div class="feature-slide"><span>01</span><h2>Gestión académica</h2><p>Oferta cursos, matricula estudiantes y registra notas con reglas verificadas en la base de datos.</p></div></div>
+        <div class="carousel-item"><div class="feature-slide"><span>02</span><h2>Información confiable</h2><p>Consulta reportes por estudiante, curso, sede y cuatrimestre.</p></div></div>
+        <div class="carousel-item"><div class="feature-slide"><span>03</span><h2>Acceso por perfiles</h2><p>Los administradores gestionan; los consultores visualizan sin alterar datos.</p></div></div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#caruselUniversitario" data-bs-slide="prev" aria-label="Anterior"><span class="carousel-control-prev-icon"></span></button>
+    <button class="carousel-control-next" type="button" data-bs-target="#caruselUniversitario" data-bs-slide="next" aria-label="Siguiente"><span class="carousel-control-next-icon"></span></button>
+</div>
+
+<div class="legacy-welcome" hidden>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-sm-1"></label>
+            <div class="col-sm-7">
+                <h2>
+                    Bienvenido(a)
+                </h2>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-6" for="nombreCompleto">Nombre Completo:</label>
+            <div class="col-sm-4">
+                @Html.DisplayFor(model => model.nombreCompleto)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-6" for="fecha">Último ingreso:</label>
+            <div class="col-sm-4">
+                @Html.DisplayFor(model => model.Fecha_Ingreso)
+            </div>
+        </div>
+
+
+
+    </form>
+</div>
+

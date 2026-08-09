@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "CreacionCuatrimestre";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CreacionCuatrimestre</h2>
+
+<form id="frmCuatrimestre" method="post">
+
+
+    <div class="form-group">
+        <label>Sedes :</label>
+        <select name="id_sede" id="id_sede" class="form-control">
+            <option value="">Seleccione una Sede</option>
+            @{
+
+                foreach (SistUniversitario.Models.RetornaSedes_Result sedes in this.ViewBag.ListaSedes)
+                {
+                    <option value="@sedes.idSedeuniversitaria">@sedes.nombre</option>
+
+                }
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Cuatrimestre :</label>
+        <select name="id_ncuatrimestre" id="id_ncuatrimestre" class="form-control">
+            <option value="">Seleccione una Sede</option>
+            @{
+
+                foreach (SistUniversitario.Models.RetornaCuatrimestre_Result cuatrimestre in this.ViewBag.ListaCuatrimestre)
+                {
+                    <option value="@cuatrimestre.id_cuatrimestre">@cuatrimestre.nombre</option>
+                }
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Cursos :</label>
+        <select name="id_curso" id="id_curso" class="form-control">
+            <option value="">Seleccione un Curso</option>
+            @{
+
+                foreach (SistUniversitario.Models.RetornaCurso_Result curso in this.ViewBag.ListaCursos)
+                {
+
+                    <option value="@curso.idCurso">@curso.nombreCurso</option>
+
+                }
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Crear Cuatrimestre" id="btnAceptar" />
+    </div>
+
+    <a href="~/CreacionCuatrimestre/CuatrimestreLista">Regresar a la lista</a>
+
+</form>

@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "DireccionesCarreraNueva";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Direcciones Carrera Nueva</h2>
+
+<form id="frmDirecciones" method="post">
+    <div class="form-group">
+        <label>Codigo:</label>
+        <input type="text" name="codigo" id="codigo" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Director :</label>
+        <select name="id_director" id="id_director" class="form-control">
+            <option value="">Seleccione un Director</option>
+            @{
+
+                foreach (SistUniversitario.Models.RetornaFuncionario_Result director in this.ViewBag.ListaDirector)
+                {
+                    <option value="@director.id_funcionario">@director.nombre</option>
+                }
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>SubDirector :</label>
+        <select name="id_subdirector" id="id_subdirector" class="form-control">
+            <option value="">Seleccione un Sub Director</option>
+            @{
+
+                foreach (SistUniversitario.Models.RetornaFuncionario_Result director in this.ViewBag.ListaSubDirector)
+                {
+                    <option value="@director.id_funcionario">@director.nombre</option>
+                }
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Nombre:</label>
+        <input type="text" name="Nombre" id="Nombre" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Guardar" id="btnAceptar" />
+    </div>
+
+    <a href="~/DireccionesCarrera/ListaDireccionCarrera">Regresar a la lista</a>
+</form>
+
+@section scripts{
+    @* *****No es necesario incluir jquery porque
+        ya el layout lo incluye*@
+<script src="~/Scripts/Direcciones/Direcciones.js"></script>
+
+}

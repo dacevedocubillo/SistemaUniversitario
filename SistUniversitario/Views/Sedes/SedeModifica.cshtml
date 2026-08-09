@@ -1,0 +1,94 @@
+﻿
+@model  SistUniversitario.Models.saRetornaSede_ID_Result
+
+@{
+    ViewBag.Title = "SedeModifica";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>SedeModifica</h2>
+
+<h2>Sede Modifica</h2>
+<form id="frmSede" method="post">
+    <input type="hidden" name="idSedeuniversitaria" id="idSedeuniversitaria" value="@Model.idSedeuniversitaria" />
+
+    <div class="form-group">
+        <label>Nombre:</label>
+        <input type="text" name="nombre" id="nombre" class="form-control" value="@Model.nombre" />
+    </div>
+
+    <div class="form-group">
+        <label>Codigo:</label>
+        <input type="text" name="codigo" id="codigo" class="form-control" value="@Model.codigo" />
+    </div>
+
+    <div class="form-group">
+        <label>Funcionario :</label>
+        <select name="id_funcionario" id="id_funcionario" class="form-control">
+            <option value="">Seleccione un Funcionario</option>
+            @{
+                foreach (SistUniversitario.Models.RetornaFuncionario_Result funcionario in this.ViewBag.ListaFuncionario)
+                {
+                    bool esIdfunciModelo = funcionario.id_funcionario == Model.id_funcionario;
+
+                    @*
+                        Incluir propiedad
+
+                    *@
+                    if (esIdfunciModelo)
+                    {
+
+                        <option value="@funcionario.id_funcionario" selected>@funcionario.nombre.ToUpper()</option>
+                    }
+                    else
+                    {
+                        <
+                        <option value="@funcionario.id_funcionario">@funcionario.nombre.ToUpper()</option>
+
+                    }
+
+                }
+
+            }
+        </select>
+    </div>
+
+
+    <div class="form-group">
+        <label>Provincia:</label>
+        <select name="id_provincia" id="id_provincia" class="form-control" value="@Model.id_provincia"></select>
+    </div>
+
+    <div class="form-group">
+        <label>Cantón:</label>
+        <select name="id_canton" id="id_canton" class="form-control" value="@Model.id_canton"></select>
+    </div>
+
+    <div class="form-group">
+        <label>Distrito:</label>
+        <select name="id_distrito" id="id_distrito" class="form-control" value="@Model.id_distrito"></select>
+    </div>
+    <div class="form-group">
+        <label>Direccion Fisica :</label>
+        <input type="text" name="DireccionFisica" id="DireccionFisica" class="form-control" value="@Model.DireccionFisica" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Guardar" id="btnAceptar" />
+    </div>
+
+    <a href="~/Cursos/ListaCurso">Regresar a la lista</a>
+
+</form>
+
+@section scripts{
+    @* *****No es necesario incluir jquery porque
+        ya el layout lo incluye*@
+
+    <script src="~/Scripts/Sedes/Sedes.js"></script>
+    <script src="~/Scripts/ScriptGenericos.js"></script>
+
+    <script src="~/Scripts/Sedes/SedesValidaciones.js"></script>
+
+
+}

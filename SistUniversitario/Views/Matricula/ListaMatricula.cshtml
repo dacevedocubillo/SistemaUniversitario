@@ -1,0 +1,39 @@
+﻿@model List<SistUniversitario.Models.saMatriculaSelect_Result>
+
+
+@{
+    ViewBag.Title = "ListaMatricula";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista Matricula</h2>
+
+<a href="~/Matricula/MatriculaNueva">Matricula Nueva</a>
+
+<table class="table">
+    <tr>
+        <th>Estudiante</th>
+        <th>Curso</th>
+        <th>Sede</th>
+        <th>Cautrimestre</th>
+        <th>Acciones</th>
+    </tr>
+    @{
+        foreach (SistUniversitario.Models.saMatriculaSelect_Result matricula in this.Model)
+        {
+        <tr>
+            <td>@matricula.Estudiante</td>
+            <td>@matricula.Curso</td>
+            <td>@matricula.Sede</td>
+            <td>@matricula.Cuatrimestre</td>
+            <td>
+                <a href="~/Matricula/MatriculaModifica?id_matricula=@matricula.id_matricula">Modificar</a>
+                <br />
+                <a href="~/Matricula/MatriculaElimina?id_matricula=@matricula.id_matricula">Eliminar</a>
+            </td>
+        </tr>
+           
+        }
+
+    }
+</table>

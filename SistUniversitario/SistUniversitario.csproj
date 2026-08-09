@@ -1,0 +1,529 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.5.2\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.2\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{18826A6D-559D-4DC7-B002-4F74D95EF659}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SistUniversitario</RootNamespace>
+    <AssemblyName>SistUniversitario</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\lib\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.3.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.3.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CarrerasController.cs" />
+    <Compile Include="Controllers\CreacionCuatrimestreController.cs" />
+    <Compile Include="Controllers\CuatrimestreController.cs" />
+    <Compile Include="Controllers\CursosCarreraController.cs" />
+    <Compile Include="Controllers\CursosController.cs" />
+    <Compile Include="Controllers\DireccionesCarreraController.cs" />
+    <Compile Include="Controllers\EstudiantesController.cs" />
+    <Compile Include="Controllers\FinalizacionCursoController.cs" />
+    <Compile Include="Controllers\FuncionariosController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InicioController.cs" />
+    <Compile Include="Controllers\LogInController.cs" />
+    <Compile Include="Controllers\MatriculaController.cs" />
+    <Compile Include="Controllers\OfertaController.cs" />
+    <Compile Include="Controllers\RegistrosNotasController.cs" />
+    <Compile Include="Controllers\ReportesController.cs" />
+    <Compile Include="Controllers\SedesController.cs" />
+    <Compile Include="Filters\SessionAuthorizeAttribute.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Canton.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CarrerasUniversitarias.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cuatrimestre.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cursos.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cursos_Carrera.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DireccionesCarrera.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Distrito.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Estudiantes.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Funcionario.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Matricula.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Oferta.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Provincia.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RegistroNotas.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ReportesViewModel.cs" />
+    <Compile Include="Models\RetornaCantonesID_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RetornaCantones_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RetornaCarrera_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RetornaCuatrimestre_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RetornaCurso_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RetornaDireccion_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RetornaDistritos_ID_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RetornaDistritos_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RetornaEstado_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RetornaEstudiante_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RetornaFuncionario_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RetornaProvincias_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RetornaSedes_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RetornaUsuarioCorreoPwd_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\saCarrUniversitariasSelect_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\saCreacionSelect_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\saCuatrimestreSelect_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\saCursosCarreraSelect_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\saCursosSelect_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\saDireccionesCarreraSelect_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\saEstudiantesSelect_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\saFinalizacionSelect_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\saFuncionariosSelect_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\saMatriculaSelect_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\saOfertaSelect_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\saRegistroNotasSelect_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\saRegistro_ID_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\saReporteAcademico_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\saRetornaCarrera_ID_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\saRetornaCuatrimestre_ID_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\saRetornaCursosCarrera_ID_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\saRetornaCurso_ID_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\saRetornaDirecciones_ID_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\saRetornaEstudiante_ID_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\saRetornaFuncionario_ID_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\saRetornaMatricula_ID_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\saRetornaSede_ID_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\saSedesSelect_Result.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SedesUniversitarias.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UniversidadEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UniversidadEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UniversidadEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UniversidadEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UniversidadEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Usuarios.cs">
+      <DependentUpon>UniversidadEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ValidacionesAcademicas.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Estilo.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\UniversidadEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UniversidadEntities.edmx</DependentUpon>
+      <LastGenOutput>UniversidadEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\UniversidadEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UniversidadEntities.edmx</DependentUpon>
+      <LastGenOutput>UniversidadEntities.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\BusquedaGeneral.js" />
+    <Content Include="Scripts\Carreras\Carreras.js" />
+    <Content Include="Scripts\CursosCarrera\CusosCarrera.js" />
+    <Content Include="Scripts\Cursos\CursoNuevo.js" />
+    <Content Include="Scripts\Cursos\Finalizacion.js" />
+    <Content Include="Scripts\Direcciones\Direcciones.js" />
+    <Content Include="Scripts\Estudiantes\EstudianteNuevo.js" />
+    <Content Include="Scripts\Funcionarios\Funcionario.js" />
+    <EntityDeploy Include="Models\UniversidadEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UniversidadEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\UniversidadEntities.edmx.diagram">
+      <DependentUpon>UniversidadEntities.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.7.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.7.1.js" />
+    <Content Include="Scripts\jquery-3.7.1.min.js" />
+    <Content Include="Scripts\jquery-3.7.1.slim.js" />
+    <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Menu.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Registro_Notas\Registros_Notas.js" />
+    <Content Include="Scripts\ScriptGenerico.js" />
+    <Content Include="Scripts\ScriptGenericos.js" />
+    <Content Include="Scripts\Sedes\SedesValidaciones.js" />
+    <Content Include="Scripts\ValidacionesGenericas.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\LogIn\Index.cshtml" />
+    <Content Include="Views\Inicio\Bievenida.cshtml" />
+    <Content Include="Views\Cursos\ListaCurso.cshtml" />
+    <Content Include="Views\Cursos\CursoModifica.cshtml" />
+    <Content Include="Views\Cursos\CursoElimina.cshtml" />
+    <Content Include="Views\Cursos\CursoNuevo.cshtml" />
+    <Content Include="Views\Carreras\ListaCarrera.cshtml" />
+    <Content Include="Views\Carreras\CarreraModifica.cshtml" />
+    <Content Include="Views\Carreras\CarreraNueva.cshtml" />
+    <Content Include="Views\Carreras\CarreraElimina.cshtml" />
+    <Content Include="Views\Sedes\ListaSedes.cshtml" />
+    <Content Include="Views\Sedes\SedeNueva.cshtml" />
+    <Content Include="Views\Sedes\SedeElimina.cshtml" />
+    <Content Include="Views\CursosCarrera\ListaCursosCarrera.cshtml" />
+    <Content Include="Views\Sedes\SedeModifica.cshtml" />
+    <Content Include="Views\CursosCarrera\CursoCarreraNuevo.cshtml" />
+    <Content Include="Views\CursosCarrera\CursosCarreraModifica.cshtml" />
+    <Content Include="Views\CursosCarrera\CursosCarreraElimina.cshtml" />
+    <Content Include="Views\DireccionesCarrera\ListaDireccionCarrera.cshtml" />
+    <Content Include="Views\DireccionesCarrera\DireccionesCarreraNueva.cshtml" />
+    <Content Include="Views\DireccionesCarrera\DireccionesCarreraModifica.cshtml" />
+    <Content Include="Views\DireccionesCarrera\DireccionesCarreraElimina.cshtml" />
+    <Content Include="Views\Funcionarios\ListaFuncionarios.cshtml" />
+    <Content Include="Views\Funcionarios\FuncionarioNuevo.cshtml" />
+    <Content Include="Views\Funcionarios\FuncionarioModifica.cshtml" />
+    <Content Include="Views\Funcionarios\FuncionarioElimina.cshtml" />
+    <Content Include="Views\Estudiantes\ListaEstudiantes.cshtml" />
+    <Content Include="Views\Estudiantes\EstudianteNuevo.cshtml" />
+    <Content Include="Views\Estudiantes\EstudianteModifica.cshtml" />
+    <Content Include="Views\Estudiantes\EstudianteElimina.cshtml" />
+    <Content Include="Views\Carreras\Index.cshtml" />
+    <Content Include="Views\Matricula\ListaMatricula.cshtml" />
+    <Content Include="Views\Matricula\MatriculaNueva.cshtml" />
+    <Content Include="Views\RegistrosNotas\ListaNotas.cshtml" />
+    <Content Include="Views\RegistrosNotas\RegistroNuevoNota.cshtml" />
+    <Content Include="Views\RegistrosNotas\RegistroNotaModifica.cshtml" />
+    <Content Include="Views\Reportes\Index.cshtml" />
+    <Content Include="Views\RegistrosNotas\RegistroNotaElimina.cshtml" />
+    <Content Include="Views\Matricula\MatriculaModifica.cshtml" />
+    <Content Include="Views\Matricula\MatriculaElimina.cshtml" />
+    <Content Include="Views\FinalizacionCurso\ListaFinalizacion.cshtml" />
+    <Content Include="Views\FinalizacionCurso\FinalizacionModifica.cshtml" />
+    <Content Include="Views\Cuatrimestre\CierreCuatrimestre.cshtml" />
+    <Content Include="Views\Cuatrimestre\ListaCuatrimestre.cshtml" />
+    <Content Include="Views\CreacionCuatrimestre\CreacionCuatrimestre.cshtml" />
+    <Content Include="Views\CreacionCuatrimestre\CuatrimestreLista.cshtml" />
+    <Content Include="Views\Oferta\OfertaNueva.cshtml" />
+    <Content Include="Views\Oferta\Oferta.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\jquery-3.7.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.7.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52298</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52298/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.2\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.2\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.2\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.2\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.5.2\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.2\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+</Project>

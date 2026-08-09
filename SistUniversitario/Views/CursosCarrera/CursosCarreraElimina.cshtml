@@ -1,0 +1,73 @@
+﻿@model SistUniversitario.Models.saRetornaCursosCarrera_ID_Result
+
+
+@{
+    ViewBag.Title = "CursosCarreraElimina";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cursos Carrera Elimina</h2>
+
+<form id="frmCursoCarrera" method="post">
+
+    <input type="hidden" name="idCurso" id="idCurso" value="@Model.id_cursoscarrera" readonly />
+
+    <div class="form-group">
+        <label>Carrera :</label>
+        <select name="id_carrera" id="id_carrera" class="form-control" readonly>
+            <option value="">Seleccione una Carrera</option>
+            @{
+
+                foreach (SistUniversitario.Models.RetornaCarrera_Result carrera in this.ViewBag.ListaCarrera)
+                {
+                    bool esIdcarreraModelo = carrera.idCuniversitaria == Model.id_carrera;
+
+                    if (esIdcarreraModelo)
+                    {
+
+                        <option value="@carrera.idCuniversitaria" selected>@carrera.Nombre.ToUpper()</option>
+                    }
+                    else
+                    {
+                        <option value="@carrera.idCuniversitaria">@carrera.Nombre.ToUpper()</option>
+
+                    }
+
+                }
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Cursos :</label>
+        <select name="id_curso" id="id_curso" class="form-control" readonly>
+            <option value="">Seleccione un Curso</option>
+            @{
+
+                foreach (SistUniversitario.Models.RetornaCurso_Result curso in this.ViewBag.ListaCursos)
+                {
+
+                    bool esIdcursoModelo = curso.idCurso == Model.id_curso;
+
+                    if (esIdcursoModelo)
+                    {
+                        <option value="@curso.idCurso" selected>@curso.nombreCurso.ToUpper()</option>
+
+                    }
+                    else
+                    {
+                        <option value="@curso.idCurso">@curso.nombreCurso.ToUpper()</option>
+
+                    }
+                }
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Guardar" id="btnAceptar" />
+    </div>
+
+    <a href="~/CursosCarrera/ListaCursosCarrera">Regresar a la lista</a>
+</form>
+

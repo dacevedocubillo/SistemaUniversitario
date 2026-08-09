@@ -1,0 +1,35 @@
+﻿@model List<SistUniversitario.Models.saOfertaSelect_Result>
+
+
+
+
+@{
+    ViewBag.Title = "Oferta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Oferta</h2>
+
+
+<a href="~/Oferta/OfertaNueva">Oferta</a>
+
+<table class="table">
+    <tr>
+        <th>Curso</th>
+        <th>Sede</th>
+        <th>Cuatrimestre</th>
+        <th>Acciones</th>
+    </tr>
+    @{
+        foreach (SistUniversitario.Models.saOfertaSelect_Result oferta in this.Model)
+        {
+            <tr>
+                <td>@oferta.Curso</td>
+                <td>@oferta.Sede</td>
+                <td>@oferta.Cuatrimestre</td>
+            </tr>
+
+        }
+
+    }
+</table>

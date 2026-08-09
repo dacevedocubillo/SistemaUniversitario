@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "MatriculaNueva";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Matricula Nueva</h2>
+
+<form id="frmMatriculaNueva" method="post">
+
+    <div class="form-group">
+        <label>Estudiante :</label>
+        <select name="id_estudiante" id="id_estudiante" class="form-control">
+            <option value="">Seleccione un estudiante</option>
+            @{
+
+                foreach (SistUniversitario.Models.RetornaEstudiante_Result estudiante in this.ViewBag.ListaEstudiante)
+                {
+                    <option value="@estudiante.id_estudiante">@estudiante.nombre</option>
+                }
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Cursos :</label>
+        <select name="id_curso" id="id_curso" class="form-control">
+            <option value="">Seleccione un Curso</option>
+            @{
+
+                foreach (SistUniversitario.Models.RetornaCurso_Result curso in this.ViewBag.ListaCursos)
+                {
+                    <option value="@curso.idCurso">@curso.nombreCurso</option>
+                }
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Sedes :</label>
+        <select name="id_sede" id="id_sede" class="form-control">
+            <option value="">Seleccione una Sede</option>
+            @{
+
+                foreach (SistUniversitario.Models.RetornaSedes_Result sedes in this.ViewBag.ListaSedes)
+                {
+                    <option value="@sedes.idSedeuniversitaria">@sedes.nombre</option>
+
+                }
+            }
+        </select>
+    </div>
+
+
+    <div class="form-group">
+        <label>Cuatrimestre :</label>
+        <select name="id_cuatrimestre" id="id_cuatrimestre" class="form-control">
+            <option value="">Seleccione una Cuatrimestre</option>
+            @{
+
+                foreach (SistUniversitario.Models.RetornaCuatrimestre_Result cuatrimestre in this.ViewBag.ListaCuatrimestre)
+                {
+                  
+                        <option value="@cuatrimestre.id_cuatrimestre">@cuatrimestre.nombre</option>
+
+                    
+
+
+                }
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Matricular" id="btnAceptar" />
+    </div>
+
+    <a href="~/Matricula/ListaMatricula">Regresar a la lista</a>
+</form>

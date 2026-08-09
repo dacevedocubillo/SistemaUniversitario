@@ -1,0 +1,36 @@
+﻿
+@model List<SistUniversitario.Models.saCursosCarreraSelect_Result>
+
+@{
+    ViewBag.Title = "ListaCursosCarrera";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista Carreras Cursos</h2>
+
+<a href="~/CursosCarrera/CursoCarreraNuevo">Agregar Curso Carrera</a>
+
+<table class="table">
+    <tr>
+        <th>Cursos</th>
+        <th>Carrera</th>
+        <th>Acciones</th>
+    </tr>
+    @{
+        foreach (SistUniversitario.Models.saCursosCarreraSelect_Result carrera in this.Model)
+        {
+            <tr>
+                <td>@carrera.nombreCurso</td>
+                <td>@carrera.Nombre</td>
+                <td>
+                    <a href="~/CursosCarrera/CursosCarreraModifica?id_cursoscarrera=@carrera.id_cursoscarrera">Modificar</a>
+                    <br />
+                    <a href="~/CursosCarrera/CursosCarreraElimina?id_cursoscarrera=@carrera.id_cursoscarrera">Elimina</a>
+                </td>
+
+            </tr>
+
+        }
+
+    }
+</table>

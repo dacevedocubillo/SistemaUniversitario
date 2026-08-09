@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "DireccionesCarreraElimina";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Direcciones Carrera Elimina</h2>
+
+<form id="frmDirecciones" method="post">
+
+    <input type="hidden" name="idDcarrera" id="idDcarrera" value="@Model.idDcarrera" readonly />
+
+    <div class="form-group">
+        <label>Codigo:</label>
+        <input type="text" name="codigo" id="codigo" class="form-control" value="@Model.Codigo" readonly />
+    </div>
+    <div class="form-group">
+        <label>Director :</label>
+        <select name="id_director" id="id_director" class="form-control" readonly>
+            <option value="">Seleccione un Director</option>
+            @{
+
+                foreach (SistUniversitario.Models.RetornaFuncionario_Result director in this.ViewBag.ListaDirector)
+                {
+                    bool esidDirector = director.id_funcionario == Model.id_director;
+
+                    if (esidDirector)
+                    {
+                        <option value="@director.id_funcionario" selected>@director.nombre.ToUpper()</option>
+                    }
+
+                    else
+                    {
+                        <option value="@director.id_funcionario">@director.nombre.ToUpper()</option>
+                    }
+
+                }
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>SubDirector :</label>
+        <select name="id_subdirector" id="id_subdirector" class="form-control" readonly>
+            <option value="">Seleccione un Sub Director</option>
+            @{
+
+                foreach (SistUniversitario.Models.RetornaFuncionario_Result subdirector in this.ViewBag.ListaSubDirector)
+                {
+                    bool esidsubdirector = subdirector.id_funcionario == Model.id_subdirector;
+
+                    if (esidsubdirector)
+                    {
+
+                        <option value="@subdirector.id_funcionario" selected>@subdirector.nombre.ToUpper()</option>
+                    }
+
+                    else
+                    {
+                        <option value="@subdirector.id_funcionario">@subdirector.nombre.ToUpper()</option>
+                    }
+
+
+                }
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Nombre:</label>
+        <input type="text" name="Nombre" id="Nombre" class="form-control" value="@Model.Nombre" readonly />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Guardar" id="btnAceptar" />
+    </div>
+
+    <a href="~/DireccionesCarrera/ListaDireccionCarrera">Regresar a la lista</a>
+</form>

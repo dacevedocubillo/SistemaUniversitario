@@ -1,0 +1,143 @@
+﻿
+@model SistUniversitario.Models.saRetornaFuncionario_ID_Result
+
+@{
+    ViewBag.Title = "FuncionarioElimina";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Funcionario Elimina</h2>
+
+
+<form id="frmfuncionario" method="post">
+
+    <input type="hidden" name="id_funcionario" id="id_funcionario" value="@Model.id_funcionario" />
+    <div class="form-group">
+        <label>Funcionario:</label>
+        <input type="text" name="nombre" id="nombre" class="form-control" value="@Model.nombre" readonly />
+    </div>
+
+    <div class="form-group">
+        <label>Cédula:</label>
+        <input type="text" name="cedula" id="cedula" class="form-control" value="@Model.cedula" readonly />
+    </div>
+
+    <div class="form-group">
+        <label>Provincia:</label>
+        <select name="id_provincia" id="id_provincia" class="form-control" value="@Model.id_provincia" readonly>
+
+            @{
+                foreach (SistUniversitario.Models.RetornaProvincias_Result provincia
+                    in this.ViewBag.ListaProvincias)
+                {
+                    bool esIdProvinciaModelo = provincia.id_Provincia == Model.id_provincia;
+
+                    @*
+                        Incluir propiedad
+
+                    *@
+                    if (esIdProvinciaModelo)
+                    {
+                        <option value="@provincia.id_Provincia" selected>@provincia.nombre.ToUpper() </option>
+
+                    }
+                    else
+                    {
+                        <option value="@provincia.id_Provincia">@provincia.nombre.ToUpper() </option>
+
+                    }
+
+                }
+
+            }
+
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Cantón:</label>
+        <select name="id_canton" id="id_canton" class="form-control" value="@Model.id_canton" readonly>
+
+
+            @{
+                foreach (SistUniversitario.Models.RetornaCantones_Result canton
+                    in this.ViewBag.ListaCantones)
+                {
+                    bool esIdCantonModelo = canton.id_Canton == Model.id_canton;
+
+                    @*
+                        Incluir propiedad
+
+                    *@
+                    if (esIdCantonModelo)
+                    {
+                        <option value="@canton.id_Canton" selected>@canton.nombre.ToUpper() </option>
+
+                    }
+                    else
+                    {
+                        <option value="@canton.id_Canton">@canton.nombre.ToUpper() </option>
+
+                    }
+
+                }
+
+            }
+
+
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Distrito:</label>
+        <select name="id_distrito" id="id_distrito" class="form-control" value="@Model.id_distrito" readonly>
+
+
+            @{
+                foreach (SistUniversitario.Models.RetornaDistritos_Result distrito in this.ViewBag.ListaDistrito)
+                {
+                    bool esIdDistritoModelo = distrito.id_Distrito == Model.id_distrito;
+                    @*
+                        Incluir propiedad
+
+                    *@
+                    if (esIdDistritoModelo)
+                    {
+                        <option value="@distrito.id_Distrito" selected>@distrito.nombre.ToUpper() </option>
+
+                    }
+                    else
+                    {
+                        <option value="@distrito.id_Distrito">@distrito.nombre.ToUpper() </option>
+
+                    }
+
+                }
+
+            }
+        </select>
+    </div>
+
+
+    <div class="form-group">
+        <label>Fecha de contratacion :</label>
+        <input type="text" name="fecha_contratacion" id="fecha_contratacion" class="form-control" value="@Model.fecha_contratacion" readonly />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Guardar" id="btnAceptar" />
+    </div>
+
+    <a href="~/Funcionarios/ListaFuncionarios">Regresar a la lista</a>
+
+</form>
+
+
+@section scripts{
+    @* *****No es necesario incluir jquery porque
+        ya el layout lo incluye*@
+
+    <script src="~/Scripts/Funcionarios/Funcionario.js"></script>
+
+}
+

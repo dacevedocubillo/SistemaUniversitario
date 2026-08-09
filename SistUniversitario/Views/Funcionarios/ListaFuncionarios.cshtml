@@ -1,0 +1,44 @@
+﻿
+@model List<SistUniversitario.Models.saFuncionariosSelect_Result>
+
+@{
+    ViewBag.Title = "ListaFuncionarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista Funcionarios</h2>
+
+<a href="~/Funcionarios/FuncionarioNuevo">Funcionario Nuevo</a>
+
+<table class="table">
+    <tr>
+        <th>Nombre</th>
+        <th>Cédula</th>
+        <th>Provincia</th>
+        <th>Canton</th>
+        <th>Distrito</th>
+        <th>Fecha de contratación</th>
+        <th>Acciones</th>
+    </tr>
+    @{
+        foreach (SistUniversitario.Models.saFuncionariosSelect_Result funcionario in this.Model)
+        {
+            <tr>
+                <td>@funcionario.funcionario</td>
+                <td>@funcionario.cedula</td>
+                <td>@funcionario.Provincia</td>
+                <td>@funcionario.Distrito</td>
+                <td>@funcionario.Canton</td>
+                <td>@funcionario.fecha_contratacion</td>
+                <td>
+                    <a href="~/Funcionarios/FuncionarioModifica?id_funcionario=@funcionario.id_funcionario">Modificar</a>
+                    <br />
+                    <a href="~/Funcionarios/FuncionarioElimina?id_funcionario=@funcionario.id_funcionario">Eliminar</a>
+                </td>
+
+            </tr>
+
+        }
+
+    }
+</table>
